@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.geometry.*?>
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+
+<TabPane fx:id="tabPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" tabClosingPolicy="UNAVAILABLE" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.Controller">
+  <tabs>
+    <Tab id="encrypt" fx:id="encryptTab" closable="false" text="Encrypt">
+         <content>
+            <VBox fx:id="vboxET" prefHeight="600.0" prefWidth="300.0">
+               <children>
+                  <Label fx:id="label1ET" text="Enter Secret Data" />
+                  <Separator prefWidth="200.0" />
+                  <TextArea fx:id="secretsTextAreaET" prefHeight="200.0" prefWidth="200.0" />
+                  <Separator prefWidth="200.0" />
+                  <HBox prefHeight="100.0" prefWidth="200.0">
+                     <children>
+                        <Button fx:id="attachFileButtonET" mnemonicParsing="false" text="Encrypt and attach File" />
+                        <TextField fx:id="attachFileTextFieldET" HBox.hgrow="ALWAYS" />
+                     </children>
+                  </HBox>
+                  <Label fx:id="label2ET" text="Enter some tags" />
+                  <Separator prefWidth="200.0" />
+                  <TextField fx:id="tagsTextFieldET" />
+                  <Separator prefWidth="200.0" visible="false" />
+                  <HBox fx:id="hboxET" prefHeight="100.0" prefWidth="200.0">
+                     <children>
+                        <Label fx:id="label3ET" text="Enter password. Email id : " />
+                        <PasswordField fx:id="passwordBoxET" promptText="password" />
+                     </children>
+                  </HBox>
+                  <Separator prefWidth="200.0" />
+                  <Button fx:id="encryptButtonET" alignment="CENTER_RIGHT" mnemonicParsing="false" text="Encrypt!">
+                     <VBox.margin>
+                        <Insets />
+                     </VBox.margin>
+                  </Button>
+                  <Separator prefWidth="200.0" />
+                  <TextFlow fx:id="infoTextFlowET" prefHeight="200.0" prefWidth="200.0" />
+               </children>
+            </VBox>
+         </content>
+    </Tab>
+    <Tab id="decrypt" fx:id="decryptTab" closable="false" text="Decrypt">
+         <content>
+            <VBox fx:id="vBoxDT" prefHeight="200.0" prefWidth="100.0">
+               <children>
+                  <Label fx:id="label1DT" text="Enter tags/date to search:" />
+                  <TextField fx:id="searchTextFieldDT" />
+                  <HBox fx:id="hboxDT" prefHeight="100.0" prefWidth="200.0">
+                     <children>
+                        <Label fx:id="label2DT" text="Enter password. Email id : " />
+                        <PasswordField fx:id="passwordBoxDT" promptText="password" />
+                        <Button fx:id="nextMailButtonDT" mnemonicParsing="false" text="Next" />
+                     </children>
+                  </HBox>
+                  <Button fx:id="searchButtonDT" mnemonicParsing="false" text="Search" />
+                  <ListView fx:id="resultsListDT" prefHeight="200.0" prefWidth="200.0" />
+                  <Button fx:id="decryptButtonDT" mnemonicParsing="false" text="Decrypt" />
+                  <TextFlow fx:id="outputTextFlowDT" prefHeight="200.0" prefWidth="200.0" />
+               </children>
+            </VBox>
+         </content></Tab>
+      <Tab id="settings" fx:id="settingsTab" closable="false" text="Settings">
+         <content>
+            <VBox fx:id="vBoxST" prefHeight="200.0" prefWidth="100.0">
+               <children>
+                  <VBox>
+                     <children>
+                        <Label text="Enter comma separated list of email addresses to use ;" />
+                        <TextField fx:id="emailListFieldST" />
+                        <Label text="Enter email address to use for sending the emails :" />
+                        <TextField fx:id="fromEmailFieldST" />
+                     </children></VBox>
+                  <HBox>
+                     <children>
+                        <Label fx:id="selectEncryptLabelST" text="Select encryption mode (see help for descriptions): " />
+                        <RadioButton fx:id="simpleEncryptRadioST" mnemonicParsing="false" text="Simple Mode">
+                           <toggleGroup>
+                              <ToggleGroup fx:id="encryptModeGroupST" />
+                           </toggleGroup>
+                        </RadioButton>
+                        <RadioButton fx:id="robustEncryptRadioST" maxWidth="1.7976931348623157E308" mnemonicParsing="false" text="Robust Encryption" toggleGroup="$encryptModeGroupST" />
+                     </children>
+                  </HBox>
+                  <HBox>
+                     <children>
+                        <Label text="If Robust Encryption is selected, enter minimum number of email IDs needed to recover secret : " />
+                        <TextField fx:id="kFieldST" alignment="CENTER_RIGHT" maxWidth="50.0" />
+                     </children>
+                  </HBox>
+                  <Button fx:id="saveButtonST" mnemonicParsing="false" text="Save Settings" />
+                  <Label fx:id="infoLabelST" />
+               </children>
+            </VBox>
+         </content></Tab>
+      <Tab fx:id="helpTab" closable="false" text="Help">
+         <content>
+            <VBox fx:id="vboxHT" prefHeight="200.0" prefWidth="100.0">
+               <children>
+                  <TextFlow fx:id="helpTextHT" prefHeight="200.0" prefWidth="200.0" />
+               </children>
+            </VBox>
+         </content>
+      </Tab>
+  </tabs>
+</TabPane>
